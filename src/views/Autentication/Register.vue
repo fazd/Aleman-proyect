@@ -1,78 +1,79 @@
 <template>
-  <v-app>
-    <v-content app class="fill-height" fluid>
-      <v-card width="35%" class="mx-auto mt-5 center">
-        <v-card-title class="text-center">
-          <h1 class="display-1 text-center font-weight-bold">Registro</h1>
-        </v-card-title>
-        <v-card-text>
-          <v-form>
-            <v-text-field
-              v-model.trim="nameInpt"
-              prepend-icon="mdi-account-circle"
-              label="Nombre"
-              v-on:input="validName"
-              :error="!enableName"
-            />
-            <v-text-field
-              v-model.trim="lastNameInpt"
-              prepend-icon="mdi-account-circle"
-              label="Apellido"
-              v-on:input="validLastName"
-              :error="!enableLastName"
-            />
-            <v-text-field
-              v-model.trim="cellphoneInpt"
-              prepend-icon="mdi-cellphone"
-              label="Celular"
-              v-on:input="validPhone"
-              :error="!enablePhone"
-            />
-            <v-text-field
-              v-model.trim="emailInpt"
-              prepend-icon="mdi-email"
-              label="Correo"
-              v-on:input="validEmail"
-              :error="!enableEmail"
-            />
-            <v-text-field
-              v-model.trim="passwordInpt"
-              :type=" showPassword ? 'text' : 'password'"
-              label="Password"
-              prepend-icon="mdi-lock"
-              :append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
-              @click:append="showPassword= !showPassword"
-              v-on:input="validPassword"
-              :error="!enablePassword"
-            />
-            <v-text-field
-              v-model.trim="password2Inpt"
-              :type=" showPasswordConf ? 'text' : 'password'"
-              label="Password"
-              prepend-icon="mdi-lock"
-              :append-icon="showPasswordConf ? 'mdi-eye' : 'mdi-eye-off'"
-              @click:append="showPasswordConf= !showPasswordConf"
-              v-on:input="validPassword2"
-              :error="!enablePassword2"
-            />
-            <v-combobox
-              v-model="select"
-              :items="items"
-              :error="!enableCombo"
-              prepend-icon="mdi-store"
-              label="¿Posee un restaurante?"
-            ></v-combobox>
-          </v-form>
-        </v-card-text>
-        <v-divider></v-divider>
-        <v-card-actions>
-          <v-btn class="font-weight-bold" color="info" :to="'Home'">Atrás</v-btn>
-          <v-spacer></v-spacer>
-          <v-btn class="font-weight-bold" color="success" @click="validAll">Registrarse</v-btn>
-        </v-card-actions>
-      </v-card>
+    <v-content>
+      <v-container class="fill-height" fluid>
+        <v-row align="center" justify="center">
+          <v-col cols="12" sm="8" md="4">
+            <v-card>
+              <v-toolbar color="primary" dark flat>
+                <v-toolbar-title>Register form</v-toolbar-title>
+              </v-toolbar>    
+              <v-card-text>
+                <v-form>
+                  <v-text-field
+                    v-model.trim="nameInpt"
+                    prepend-icon="mdi-account-circle"
+                    label="Nombre"
+                    v-on:input="validName"
+                    :error="!enableName"
+                  />
+                  <v-text-field
+                    v-model.trim="lastNameInpt"
+                    prepend-icon="mdi-account-circle"
+                    label="Apellido"
+                    v-on:input="validLastName"
+                    :error="!enableLastName"
+                  />
+                  <v-text-field
+                    v-model.trim="cellphoneInpt"
+                    prepend-icon="mdi-cellphone"
+                    label="Celular"
+                    v-on:input="validPhone"
+                    :error="!enablePhone"
+                  />
+                  <v-text-field
+                    v-model.trim="emailInpt"
+                    prepend-icon="mdi-email"
+                    label="Correo"
+                    v-on:input="validEmail"
+                    :error="!enableEmail"
+                  />
+                  <v-text-field
+                    v-model.trim="passwordInpt"
+                    :type=" showPassword ? 'text' : 'password'"
+                    label="Password"
+                    prepend-icon="mdi-lock"
+                    :append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
+                    @click:append="showPassword= !showPassword"
+                    v-on:input="validPassword"
+                    :error="!enablePassword"
+                  />
+                  <v-text-field
+                    v-model.trim="password2Inpt"
+                    :type=" showPasswordConf ? 'text' : 'password'"
+                    label="Password"
+                    prepend-icon="mdi-lock"
+                    :append-icon="showPasswordConf ? 'mdi-eye' : 'mdi-eye-off'"
+                    @click:append="showPasswordConf= !showPasswordConf"
+                    v-on:input="validPassword2"
+                    :error="!enablePassword2"
+                  />
+                  <v-select
+                    :items="options"
+                    label="¿Pertenece al semillero de aleman?"
+                  ></v-select>
+                </v-form>
+              </v-card-text>
+              <v-divider></v-divider>
+              <v-card-actions>
+                <v-btn class="font-weight-bold" color="info" :to="'Home'">Atrás</v-btn>
+                <v-spacer></v-spacer>
+                <v-btn class="font-weight-bold" color="success" @click="validAll">Registrarse</v-btn>
+              </v-card-actions>
+            </v-card>      
+          </v-col>
+        </v-row>  
+      </v-container>
     </v-content>
-  </v-app>
 </template>
 
 <script>
@@ -97,7 +98,7 @@ export default {
     password2Inpt: "",
     select: "",
     links: ["Home", "Login", "Register"],
-    items: ["Si", "No"]
+    options: ["Si", "No"]
   }),
   methods: {
     hasSpecial(str) {
@@ -144,7 +145,8 @@ export default {
         this.enablePassword2 &&
         this.enableCombo
       ) {
-        var text = {
+        //Console.log("funciona");
+        /*var text = {
           idUser: Math.floor(Math.random() * (10000 - 1 + 1) + 1) ,
           FirstName: this.nameInpt,
           LastName: this.lastNameInpt,       
@@ -152,8 +154,7 @@ export default {
           Password: this.passwordInpt,
           Cellphone: this.cellphoneInpt
         };
-        console.log(text);
-        /*this.axios
+        this.axios
           .post('/api/register', text)
           .then(response => {
             console.log("Se vienen los datos");

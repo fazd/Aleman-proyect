@@ -1,48 +1,63 @@
 <template>
+    <div>
     <v-app-bar
-      absolute
-      color="#43a047"
+      color="deep-purple accent-4"
       dark
-      shrink-on-scroll
-      prominent
-      src='require("../assets/background-bar.jpg")'
-      fade-img-on-scroll
-      scroll-target="#scrolling-techniques-5"
-      scroll-threshold="500"
+      fixed
+      app
     >
-      <template v-slot:img="{ props }">
-        <v-img
-          v-bind="props"
-          gradient="to top right, rgba(55,236,186,.7), rgba(25,32,72,.7)"
-        ></v-img>
-      </template>
-
       <v-app-bar-nav-icon></v-app-bar-nav-icon>
 
-      <v-toolbar-title>Deustchkurz</v-toolbar-title>
+      <v-toolbar-title>Deutschkurz</v-toolbar-title>
 
       <v-spacer></v-spacer>
+      <component  v-bind:is="logStatus"></component>
+<!--       
+      <v-menu
+        left
+        bottom
+      >
+        <template v-slot:activator="{ on }">
+          <v-btn icon v-on="on">
+            <v-icon>mdi-dots-vertical</v-icon>
+          </v-btn>
+        </template>
 
-      <v-btn icon>
-        <v-icon>mdi-magnify</v-icon>
-      </v-btn>
-
-      <v-btn icon>
-        <v-icon>mdi-heart</v-icon>
-      </v-btn>
-
-      <v-btn icon>
-        <v-icon>mdi-dots-vertical</v-icon>
-      </v-btn>
+        <v-list>
+          <v-list-item
+            v-for="n in 5"
+            :key="n"
+            @click="() => {}"
+          >
+            <v-list-item-title>Option {{ n }}</v-list-item-title>
+          </v-list-item>
+        </v-list>
+      </v-menu> -->
     </v-app-bar>
+  </div>
     
 </template>
 
 <script>
+import LogedIn from './LogedIn.vue'
+import LogedOut from './LogedOut.vue'
 export default {
+    components: {
+      LogedIn, LogedOut
+    },
     data: ()=>({
         backgroundNav: 'require("../assets/background-bar.jpg")'
-    })
+    }),
+    computed: {
+      logStatus: function(){
+        if(this.$store.state.log){
+          return 'LogedIn'
+        }
+        else{
+          return 'LogedOut'
+        }
+      }
+    }
 }
 </script>
 
