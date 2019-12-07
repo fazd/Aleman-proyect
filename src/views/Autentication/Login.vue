@@ -77,6 +77,8 @@ export default {
             //console.log("Se vienen los datos");
             console.log(response.data);
             this.loading= !this.loading;
+            let url = "@/assets/perfil.jpg"
+            this.$store.commit('login',response.data.name,url,response.data.token)
           })
           .catch(error => {
             //console.log("Llegó esto a cliente");

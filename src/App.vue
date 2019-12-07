@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import Navbar from './components/Navbar';
+import Navbar from './components/NavBar/Navbar';
 import Footer from './components/Footer'
 import NavDrawer from './components/NavDrawer/NavDrawer'
 export default {

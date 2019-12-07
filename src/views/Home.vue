@@ -116,7 +116,8 @@ export default {
         {
           name: "Fabio Andres",
           text: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Qui nesciunt dolor odit dolorem consequuntur nemo tenetur quam ipsam ducimus, libero tempore sit enim accusamus, numquam sint fugit corporis quos voluptatibus.",
-          src: require("../assets/perfil.jpg")        },
+          src: require("../assets/perfil.jpg")        
+        },
         {
           name: "Fabio Andres",
           text: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Qui nesciunt dolor odit dolorem consequuntur nemo tenetur quam ipsam ducimus, libero tempore sit enim accusamus, numquam sint fugit corporis quos voluptatibus.",

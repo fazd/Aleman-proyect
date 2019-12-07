@@ -16,8 +16,12 @@
             <v-list-item-title>{{item.title}}</v-list-item-title>
             </v-list-item-content>
         </v-list-item>
-        
         </v-list>
+        <template v-slot:append>
+        <div class="pa-2">
+          <v-btn :disabled="!$store.state.log" color="warning" block rounded @click="logout">Logout</v-btn>
+        </div>
+      </template>
     </v-navigation-drawer>
 </template>
 
@@ -68,6 +72,11 @@ export default {
                 return 'LogedOut'
             }
       }
+    },
+    methods:{
+        logout(){
+            this.$store.commit('logout')
+        }
     }
 }
 </script>

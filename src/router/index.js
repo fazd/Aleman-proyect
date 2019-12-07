@@ -5,6 +5,12 @@ import About from '../views/About.vue'
 import Login from '../views/Autentication/Login.vue'
 import Register from '../views/Autentication/Register.vue'
 import ForgotPassword from '../views/Autentication/ForgotPassword.vue'
+import Artikel from '../views/Artikel.vue'
+import Konjugation from '../views/Konjugation.vue'
+import Verben from '../views/Verben.vue'
+import Wortschatz from '../views/Wortschatz.vue'
+import Profile from '../views/Profile.vue'
+
 Vue.use(VueRouter)
 
 const routes = [
@@ -34,9 +40,34 @@ const routes = [
     component:Register
   },
   {
-    path: '/forgotpassword',
-    name: 'forgotPassword',
+    path: '/profile',
+    name: 'profile',
+    component:Profile
+  },
+  {
+    path: '/forgot_password',
+    name: 'ForgotPassword',
     component:ForgotPassword
+  },
+  {
+    path: '/artikel',
+    name: 'Artikel',
+    component:Artikel
+  },
+  {
+    path: '/konjugation',
+    name: 'Konjugation',
+    component:Konjugation
+  },
+  {
+    path: '/verben',
+    name: 'Verben',
+    component:Verben
+  },
+  {
+    path: '/wortschatz',
+    name: 'Wortschatz',
+    component:Wortschatz
   },
 ]
 

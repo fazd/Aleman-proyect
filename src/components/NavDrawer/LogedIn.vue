@@ -1,5 +1,5 @@
 <template>
-  <v-list-item  link to="me">
+  <v-list-item  link to="profile">
         <v-list-item-content>
         <v-list-item-title>Hallo {{profileName}}</v-list-item-title>
         </v-list-item-content>
