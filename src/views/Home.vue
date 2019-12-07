@@ -1,13 +1,16 @@
 <template>
   <v-content>
     <v-container fluid class="fill-height">
+      <h2>Nuestra galeria</h2>
       <v-row class="mb-5">
         <v-col>
           <v-carousel cycle hide-delimiter-background show-arrows-on-hover>
-            <v-carousel-item v-for="(slide, i) in slides" :key="i">
-              <v-sheet :color="colors[i]" height="100%">
+            <v-carousel-item v-for="(slide, i) in slides" :key="i"
+            >
+              <v-sheet  height="100%" color="white">
                 <v-row class="fill-height" align="center" justify="center">
-                  <div class="display-3">{{ slide }} Slide</div>
+                  <v-img :src="slide.src" aspect-ratio="2" contain></v-img>
+                  <!-- <div class="display-3">{{ slide.name }} Slide</div> -->
                 </v-row>
               </v-sheet>
             </v-carousel-item>
@@ -20,14 +23,14 @@
           <CardLink title="Hören" src="http://german-akademie.com/wp-content/uploads/2017/05/deutsch-lernen-durch-horen-hor-mal-12-meine-handtasche-ist-weg.jpg"></CardLink>
         </v-col>
         <v-col col="12" sm="8" md="3">
-          <CardLink title="Hören" src="http://german-akademie.com/wp-content/uploads/2017/05/deutsch-lernen-durch-horen-hor-mal-12-meine-handtasche-ist-weg.jpg"></CardLink>
+          <CardLink title="Lesen" src="http://german-akademie.com/wp-content/uploads/2017/05/deutsch-lernen-durch-horen-hor-mal-12-meine-handtasche-ist-weg.jpg"></CardLink>
 
         </v-col>
         <v-col col="12" sm="8" md="3">
-          <CardLink title="Hören" src="http://german-akademie.com/wp-content/uploads/2017/05/deutsch-lernen-durch-horen-hor-mal-12-meine-handtasche-ist-weg.jpg"></CardLink>
+          <CardLink title="Gramatik" src="http://german-akademie.com/wp-content/uploads/2017/05/deutsch-lernen-durch-horen-hor-mal-12-meine-handtasche-ist-weg.jpg"></CardLink>
         </v-col>
         <v-col col="12" sm="8" md="3">
-          <CardLink title="Hören" src="http://german-akademie.com/wp-content/uploads/2017/05/deutsch-lernen-durch-horen-hor-mal-12-meine-handtasche-ist-weg.jpg"></CardLink>
+          <CardLink title="Filme" src="http://german-akademie.com/wp-content/uploads/2017/05/deutsch-lernen-durch-horen-hor-mal-12-meine-handtasche-ist-weg.jpg"></CardLink>
         </v-col>
         
       </v-row>
@@ -82,107 +85,127 @@ export default {
         "red lighten-1",
         "deep-purple accent-4"
       ],
-      slides: ["First", "Second", "Third", "Fourth", "Fifth"],
+      slides: [
+        {
+          name:"First",
+          src: require('../assets/foto1.jpg')
+        },
+        {
+          name:"Second",
+          src: require('../assets/background-bar.jpg')
+        },
+        {
+          name:"Third",
+          src: require('../assets/foto1.jpg')
+        },
+        {
+          name:"Fourth",
+          src: require('../assets/foto1.jpg')
+        },
+        {
+          name:"Fifth",
+          src: require('../assets/foto1.jpg')
+        },
+      ],
       users: [
         {
           name: "Fabio Andres",
           text: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Qui nesciunt dolor odit dolorem consequuntur nemo tenetur quam ipsam ducimus, libero tempore sit enim accusamus, numquam sint fugit corporis quos voluptatibus.",
-          src: "https://cdn.vuetifyjs.com/images/cards/halcyon.png"
+          src: require("../assets/perfil.jpg")
         },
         {
           name: "Fabio Andres",
           text: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Qui nesciunt dolor odit dolorem consequuntur nemo tenetur quam ipsam ducimus, libero tempore sit enim accusamus, numquam sint fugit corporis quos voluptatibus.",
-          src: "https://cdn.vuetifyjs.com/images/cards/halcyon.png"
+          src: require("../assets/perfil.jpg")        },
+        {
+          name: "Fabio Andres",
+          text: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Qui nesciunt dolor odit dolorem consequuntur nemo tenetur quam ipsam ducimus, libero tempore sit enim accusamus, numquam sint fugit corporis quos voluptatibus.",
+          src: require("../assets/perfil.jpg")
         },
         {
           name: "Fabio Andres",
           text: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Qui nesciunt dolor odit dolorem consequuntur nemo tenetur quam ipsam ducimus, libero tempore sit enim accusamus, numquam sint fugit corporis quos voluptatibus.",
-          src: "https://cdn.vuetifyjs.com/images/cards/halcyon.png"
+          src: require("../assets/perfil.jpg")
         },
         {
           name: "Fabio Andres",
           text: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Qui nesciunt dolor odit dolorem consequuntur nemo tenetur quam ipsam ducimus, libero tempore sit enim accusamus, numquam sint fugit corporis quos voluptatibus.",
-          src: "https://cdn.vuetifyjs.com/images/cards/halcyon.png"
+          src: require("../assets/perfil.jpg")
         },
         {
           name: "Fabio Andres",
           text: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Qui nesciunt dolor odit dolorem consequuntur nemo tenetur quam ipsam ducimus, libero tempore sit enim accusamus, numquam sint fugit corporis quos voluptatibus.",
-          src: "https://cdn.vuetifyjs.com/images/cards/halcyon.png"
+          src: require("../assets/perfil.jpg")
         },
         {
           name: "Fabio Andres",
           text: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Qui nesciunt dolor odit dolorem consequuntur nemo tenetur quam ipsam ducimus, libero tempore sit enim accusamus, numquam sint fugit corporis quos voluptatibus.",
-          src: "https://cdn.vuetifyjs.com/images/cards/halcyon.png"
+          src: require("../assets/perfil.jpg")
         },
         {
           name: "Fabio Andres",
           text: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Qui nesciunt dolor odit dolorem consequuntur nemo tenetur quam ipsam ducimus, libero tempore sit enim accusamus, numquam sint fugit corporis quos voluptatibus.",
-          src: "https://cdn.vuetifyjs.com/images/cards/halcyon.png"
+          src: require("../assets/perfil.jpg")
         },
         {
           name: "Fabio Andres",
           text: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Qui nesciunt dolor odit dolorem consequuntur nemo tenetur quam ipsam ducimus, libero tempore sit enim accusamus, numquam sint fugit corporis quos voluptatibus.",
-          src: "https://cdn.vuetifyjs.com/images/cards/halcyon.png"
+          src: require("../assets/perfil.jpg")
         },
         {
           name: "Fabio Andres",
           text: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Qui nesciunt dolor odit dolorem consequuntur nemo tenetur quam ipsam ducimus, libero tempore sit enim accusamus, numquam sint fugit corporis quos voluptatibus.",
-          src: "https://cdn.vuetifyjs.com/images/cards/halcyon.png"
+          src: require("../assets/perfil.jpg")
         },
         {
           name: "Fabio Andres",
           text: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Qui nesciunt dolor odit dolorem consequuntur nemo tenetur quam ipsam ducimus, libero tempore sit enim accusamus, numquam sint fugit corporis quos voluptatibus.",
-          src: "https://cdn.vuetifyjs.com/images/cards/halcyon.png"
+          src: require("../assets/perfil.jpg")
         },
         {
           name: "Fabio Andres",
           text: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Qui nesciunt dolor odit dolorem consequuntur nemo tenetur quam ipsam ducimus, libero tempore sit enim accusamus, numquam sint fugit corporis quos voluptatibus.",
-          src: "https://cdn.vuetifyjs.com/images/cards/halcyon.png"
+          src: require("../assets/perfil.jpg")
         },
         {
           name: "Fabio Andres",
           text: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Qui nesciunt dolor odit dolorem consequuntur nemo tenetur quam ipsam ducimus, libero tempore sit enim accusamus, numquam sint fugit corporis quos voluptatibus.",
-          src: "https://cdn.vuetifyjs.com/images/cards/halcyon.png"
+          src: require("../assets/perfil.jpg")
         },
         {
           name: "Fabio Andres",
           text: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Qui nesciunt dolor odit dolorem consequuntur nemo tenetur quam ipsam ducimus, libero tempore sit enim accusamus, numquam sint fugit corporis quos voluptatibus.",
-          src: "https://cdn.vuetifyjs.com/images/cards/halcyon.png"
+          src: require("../assets/perfil.jpg")
         },
         {
           name: "Fabio Andres",
           text: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Qui nesciunt dolor odit dolorem consequuntur nemo tenetur quam ipsam ducimus, libero tempore sit enim accusamus, numquam sint fugit corporis quos voluptatibus.",
-          src: "https://cdn.vuetifyjs.com/images/cards/halcyon.png"
+          src: require("../assets/perfil.jpg")
         },
         {
           name: "Fabio Andres",
           text: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Qui nesciunt dolor odit dolorem consequuntur nemo tenetur quam ipsam ducimus, libero tempore sit enim accusamus, numquam sint fugit corporis quos voluptatibus.",
-          src: "https://cdn.vuetifyjs.com/images/cards/halcyon.png"
+          src: require("../assets/perfil.jpg")
         },
         {
           name: "Fabio Andres",
           text: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Qui nesciunt dolor odit dolorem consequuntur nemo tenetur quam ipsam ducimus, libero tempore sit enim accusamus, numquam sint fugit corporis quos voluptatibus.",
-          src: "https://cdn.vuetifyjs.com/images/cards/halcyon.png"
+          src: require("../assets/perfil.jpg")
         },
         {
           name: "Fabio Andres",
           text: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Qui nesciunt dolor odit dolorem consequuntur nemo tenetur quam ipsam ducimus, libero tempore sit enim accusamus, numquam sint fugit corporis quos voluptatibus.",
-          src: "https://cdn.vuetifyjs.com/images/cards/halcyon.png"
+          src: require("../assets/perfil.jpg")
         },
         {
           name: "Fabio Andres",
           text: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Qui nesciunt dolor odit dolorem consequuntur nemo tenetur quam ipsam ducimus, libero tempore sit enim accusamus, numquam sint fugit corporis quos voluptatibus.",
-          src: "https://cdn.vuetifyjs.com/images/cards/halcyon.png"
+          src: require("../assets/perfil.jpg")
         },
         {
           name: "Fabio Andres",
           text: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Qui nesciunt dolor odit dolorem consequuntur nemo tenetur quam ipsam ducimus, libero tempore sit enim accusamus, numquam sint fugit corporis quos voluptatibus.",
-          src: "https://cdn.vuetifyjs.com/images/cards/halcyon.png"
-        },
-        {
-          name: "Fabio Andres",
-          text: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Qui nesciunt dolor odit dolorem consequuntur nemo tenetur quam ipsam ducimus, libero tempore sit enim accusamus, numquam sint fugit corporis quos voluptatibus.",
-          src: "https://cdn.vuetifyjs.com/images/cards/halcyon.png"
+          src: require("../assets/perfil.jpg")
         },
       ]
     };

@@ -4,9 +4,10 @@
       color="deep-purple accent-4"
       dark
       fixed
+      :clipped-left="$vuetify.breakpoint.lgAndUp"
       app
     >
-      <v-app-bar-nav-icon></v-app-bar-nav-icon>
+     <v-app-bar-nav-icon @click.stop="mutateDrawer" />
 
       <v-toolbar-title>Deutschkurz</v-toolbar-title>
 
@@ -56,6 +57,11 @@ export default {
         else{
           return 'LogedOut'
         }
+      }
+    },
+    methods:{
+      mutateDrawer(){
+        this.$store.commit('mutDrawer')
       }
     }
 }
