@@ -30,8 +30,18 @@
               <v-card-actions>
                 <v-btn class="font-weight-bold" color="info" :to="'Register'">Register</v-btn>
                 <v-spacer></v-spacer>
-                <v-btn class="font-weight-bold" color="success" @click="isValid">Login</v-btn>
+                <v-btn class="font-weight-bold" color="success" @click="isValid">
+                  <h4 v-if="!loading">Login</h4>
+                    <v-progress-circular
+                      indeterminate
+                      color="primary"
+                      v-else
+                    ></v-progress-circular>
+                </v-btn>
               </v-card-actions>
+                <v-alert v-model="error" transition="scroll-y-transition" dismissible type="error">
+                  Complete los campos que están en rojo
+                </v-alert>
             </v-card>
           </v-col>
         </v-row>
@@ -48,51 +58,46 @@ export default {
     emailInpt: "",
     passwordInpt: "",
     enablePassword: true,
-    enableEmail: true
+    enableEmail: true,
+    loading: false,
+    error : false
   }),
   methods: {
     isValid() {
       var op =
         this.emailInpt.match(/\S+@\S+\.\S+/) != null &&
-        this.passwordInpt.length > 2;
+        this.passwordInpt.length > 7;
       if (op) {
-        //Console.log("exito");
-        /*var text ={
-            "Email":this.emailInpt,
-            "Password":this.passwordInpt
-            }
-            console.log(text);
-            
-            /*this.axios.post('/api/login',text).then((response) =>{
-                console.log(response.data);
-                if(response.data.Message=="inicio exitoso"){
-                this.$store.commit('changeLogState');
-                var strin = ""+response.data.FirstName +" "+response.data.LastName
-                this.$store.commit('setUsername',strin);
-                this.$store.commit('setToken',this.emailInpt)
-                //console.log("el valor del boolean es"+ this.$store.state.isLoged);
-                this.$router.push({ path: 'home' })
-                }
-                else if (response.data.Message=="el usuario no existe"){
-                alert("El Usuario no existe")
-                this.enableEmail = false;
-                }
-                else{
-                alert("Contraseña incorrecta");
-                this.enablePassword = false;
-                }
-            })
-            .catch(error => {
-                console.log("Llegó esto a cliente");
-                console.log(error.response);
-                
-            });*/
-        //console.log(text)
+        console.log("exito");
+        var text ={
+            "email":this.emailInpt,
+            "password":this.passwordInpt
+        }
+            this.axios.post('http://localhost:3001/users/login',text).then(response => {
+            //console.log("Se vienen los datos");
+            console.log(response.data);
+            this.loading= !this.loading;
+          })
+          .catch(error => {
+            //console.log("Llegó esto a cliente");
+            console.log(error.response);
+          })
+          .finally(err=> {
+            this.loading= false;
+            console.log(err)
+            this.$router.push({path: 'Home'})
+          });
+              
       } else {
-        alert("Complete los campos");
+        this.error = true;
+        //alert("Complete los campos");
         this.enableEmail = this.emailInpt.match(/\S+@\S+\.\S+/) != null;
-        this.enablePassword = this.passwordInpt.length > 2;
+        this.enablePassword = this.passwordInpt.length > 7;
       }
+      
+    },
+    changeError(){
+      this.error = false;
     }
   },
   created() {
