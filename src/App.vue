@@ -15,7 +15,7 @@
 <script>
 import Navbar from './components/Navbar';
 import Footer from './components/Footer'
-import NavDrawer from './components/NavDrawer'
+import NavDrawer from './components/NavDrawer/NavDrawer'
 export default {
   name: 'App',
 

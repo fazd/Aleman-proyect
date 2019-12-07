@@ -17,13 +17,12 @@
         <v-spacer></v-spacer>
 
         <v-btn
-          v-for="icon in icons"
-          :key="icon"
+          v-for="(icon,i) in icons"
+          :key="i"
           class="mx-4"
           dark
           icon
-        >
-          <v-icon size="24px">{{ icon }}</v-icon>
+        >  <a :href="icon.link" target="_blank"><v-icon color="white" size="24px">{{ icon.icon }}</v-icon></a>
         </v-btn>
       </v-card-title>
 
@@ -38,10 +37,10 @@
 export default {
     data: () => ({
       icons: [
-        'mdi-instagram',
-        'mdi-twitter',
-        'mdi-google-plus',
-        'mdi-github-circle',
+        {icon: 'mdi-instagram', link:'https://www.instagram.com/urrrlaub/'},
+        {icon: 'mdi-twitter', link:''},
+        {icon: 'mdi-google-plus', link: ''},
+        {icon: 'mdi-github-circle', link: 'https://github.com/fazd/Aleman-proyect'}
       ],
     }),
 }
